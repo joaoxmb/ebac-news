@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+  --font-c-primary: #000;
+  --font-c-medium: #ccc;
+  --font-c-secundary: #fff;
+
+  --bg-c-primary: #fff;
+  --bg-c-medium: #ccc;
+  --bg-c-lightgrey: #eee;
+  --bg-c-secundary: #000;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+.flex{
+  display: flex;
+}
+
+input, button{
+  padding: 10px 20px;
+  margin: 0;
+  border: 0;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+input {
+  font-weight: normal;
+  background-color: var(--bg-c-lightgrey);
+  box-shadow: inset 0 0 0 1px var(--font-c-medium);
+}
+button {
+  background-color: var(--bg-c-secundary);
+  cursor: pointer;
+  color: var(--font-c-secundary);
+  font-weight: 500;
+}
+
+li {
+  list-style: none;
+}
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+header {
+  border-bottom: 2px solid var(--bg-c-medium);
+  user-select: none;
+}
+header > div > div {
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+}
+header > div > div > div {
+  align-items: center;
+  gap: 20px;
+}
+header h1 {
+  font-size: 1.8rem;
+}
+header form {
+  gap: 15px;
+}
+header nav li {
+  cursor: pointer;
+}
+header nav a {
+  text-decoration: none;
+  color: var(--font-c-primary);
+}
+header .menu {
+  display: flex;
+  gap: 15px;
+}
+header .menu > li {
+  position: relative;
+  padding: 15px 0;
+  box-shadow: inset 0 2px 0 0 transparent;
+  transition: box-shadow .3s;
+}
+header .menu > li:hover {
+  box-shadow: inset 0 2px 0 0 #267dd4;
+}
+header .menu > li:hover .submenu{
+  overflow: visible;
+  height: auto; 
+  opacity: 1;
+}
+header .menu > li:hover .submenu::before{
+  content: '';
+  width: 100%;
+  height: 50%;
+  top: -50%;
+  left: 0;
+  position: absolute;
+}
+header .submenu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  border: 1px solid var(--bg-c-medium);
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+header .submenu > li {
+  padding: 10px 20px;
+  background-color: var(--bg-c-lightgrey);
+  transition: background .3s;
+}
+header .submenu > li:hover {
+  background-color: var(--bg-c-medium);
+}
+
+button.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+button.hamburger span{
+  width: 32px;
+  height: 3px;
+  background-color: var(--bg-c-secundary);
+}
+
+.content > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+.content section{
+  width: 100%;
+}
+.content section h2 {
+  padding: 20px 0 15px 0;
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.articles img {
+  width: 100%;
+}
+.articles a {
+  text-decoration: none;
+  color: var(--font-c-primary);
+}
+.articles a:hover {
+  text-decoration: underline;
+}
+
+.content aside .articles {
+  grid-template-columns: 1fr;
+}
+.highlight .articles {
+  grid-template-columns: 1fr;
+}
+.highlight .articles img {
+  width: 50%;
+}
+.highlight article > a {
+  display: flex;
+  gap: 20px;
+}
+
+footer {
+  background-color: var(--bg-c-medium);
+  margin-top: 50px;
+}
+footer p {
+  padding: 40px 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 767px) {
+  header nav {
+    display: block !important;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .articles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 767px) {
+  .articles {
+    grid-template-columns: 1fr;
+  }
+  .highlight .articles article > a img{
+    width: 100%;
+  }
+  .highlight .articles article > a{
+    flex-direction: column;
+  }
+  .content > div{
+    grid-template-columns: 1fr;
+  }
+
+  header > div > div {
+    padding: 15px 0;
+  }
+  header form.flex {
+    display: none;
+  }
+  header nav {
+    display: none;
+  }
+  header .hamburger{
+    display: flex;
+  }
+  header .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  header .menu > li {
+    position: relative;
+    padding: 0;
+    box-shadow: inset 0 2px 0 0 transparent;
+    font-weight: 500;
+  }
+  header .menu > li:hover {
+    box-shadow: none;
+  }
+  header .submenu {
+    position: relative;
+    border: none;
+    overflow: visible;
+    height: auto;
+    opacity: 1;
+    left: 0;
+    top: 0;
+  }
+  header .submenu > li::before {
+    content: "•";
+  }
+  header .submenu > li {
+    padding: 10px 20px;
+    background-color: transparent;
+    font-weight: 400;
+  }
+  header .submenu > li:hover {
+    background-color: transparent;
+  }
+  header .menu > li:hover .submenu::before{
+    content: none;
+  }
+}
